@@ -1,0 +1,370 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',Tahoma,sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#ff9ac8,#ffcbe2,#ffeef7);
+
+    position:relative;
+
+}
+
+/* الخلفية */
+
+#background{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:radial-gradient(circle,#ffffff33 1px,transparent 1px);
+
+background-size:35px 35px;
+
+animation:bgMove 20s linear infinite;
+
+z-index:0;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+100%{
+
+transform:translate(-150px,-150px);
+
+}
+
+}
+
+/* صندوق المحتوى */
+
+.container{
+
+position:relative;
+
+z-index:10;
+
+width:90%;
+
+max-width:700px;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.78);
+
+backdrop-filter:blur(12px);
+
+box-shadow:0 10px 40px rgba(0,0,0,.18);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+/* النص */
+
+#text{
+
+font-size:46px;
+
+color:#ff2d75;
+
+text-align:center;
+
+line-height:1.7;
+
+margin-bottom:40px;
+
+transition:.8s;
+
+}
+
+/* الأزرار */
+
+#buttons{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+button{
+
+padding:16px 34px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:.35s;
+
+font-weight:bold;
+
+color:white;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+#nextBtn{
+
+background:#ff2d75;
+
+box-shadow:0 0 25px #ff2d75;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+
+}
+
+/* تأثيرات الظهور */
+
+.fadeOut{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+.fadeIn{
+
+animation:fade .8s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* للموبايل */
+
+@media(max-width:700px){
+
+#text{
+
+font-size:32px;
+
+}
+
+button{
+
+width:90%;
+
+font-size:18px;
+
+}
+
+}
+/* ===========================
+   🤍 زر القلب
+=========================== */
+
+#menuBtn{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+width:55px;
+
+height:55px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+border:2px solid rgba(255,255,255,.3);
+
+border-radius:50%;
+
+cursor:pointer;
+
+z-index:999999999;
+pointer-events:auto;
+
+transition:.5s;
+
+box-shadow:0 0 20px rgba(255,105,180,.4);
+
+user-select:none;
+
+}
+
+#menuBtn:hover{
+
+transform:scale(1.15);
+
+box-shadow:0 0 30px #ff5fa2;
+
+}
+
+
+
+/* دوران القلب */
+
+#menuBtn.open{
+
+transform:rotate(360deg) scale(1.2);
+
+}
+
+
+
+/* القائمة */
+
+#secretMenu{
+
+position:fixed;
+
+top:85px;
+
+right:20px;
+
+display:none;
+
+padding:10px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+border-radius:18px;
+
+box-shadow:0 0 25px rgba(255,105,180,.5);
+
+z-index:999999;
+
+animation:fadeMenu .35s ease;
+
+}
+
+
+
+/* زر المفاجأة */
+
+#giftMenuBtn{
+
+padding:12px 22px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:14px;
+
+background:#ff4d94;
+
+color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#giftMenuBtn:hover{
+
+transform:scale(1.08);
+
+background:#ff2d75;
+
+}
+
+
+
+@keyframes fadeMenu{
+
+from{
+
+opacity:0;
+
+transform:translateY(-15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
